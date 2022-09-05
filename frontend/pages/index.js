@@ -4,9 +4,13 @@
 
 import Head from "next/head";
 import Image from "next/image";
+import Header from "../components/Header";
+import LotteryEntrance from "../components/LotteryEntrance";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  // detect if u're on the right network
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +18,8 @@ export default function Home() {
         <meta name="description" content="Decentralized Lottery" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      hello
+      <Header />
+      <LotteryEntrance />
     </div>
   );
 }
