@@ -1,13 +1,14 @@
-# Sample Hardhat Project
+# Repo for contracts of the Lottery dApp
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+First, install dependencies:
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+```zsh
+yarn
 ```
+
+Next, run the following command for more info:
+
+```zsh
+yarn hardhat help
+```
+or visit https://hardhat.org/docs
