@@ -5,7 +5,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "hero-image": "url('../public/win-lottery.jpeg')",
+      },
+    },
   },
   plugins: [],
 };

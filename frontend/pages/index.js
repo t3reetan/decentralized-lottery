@@ -12,7 +12,7 @@ export default function Home() {
   // detect if u're on the right network
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Smart Contract Lottery</title>
         <meta name="description" content="Decentralized Lottery" />
@@ -20,6 +20,6 @@ export default function Home() {
       </Head>
       <Header />
       <LotteryEntrance />
-    </div>
+    </>
   );
 }
