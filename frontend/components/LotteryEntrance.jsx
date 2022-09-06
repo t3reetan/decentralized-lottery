@@ -16,7 +16,11 @@ const LotteryEntrance = () => {
 
   const dispatch = useNotification(); // dispatch triggers a pop up
 
-  const { runContractFunction: enterLottery } = useWeb3Contract({
+  const {
+    runContractFunction: enterLottery,
+    isLoading,
+    isFetching,
+  } = useWeb3Contract({
     abi: abi,
     contractAddress: raffleContractAddress,
     functionName: "enterLottery",
@@ -89,10 +93,10 @@ const LotteryEntrance = () => {
     <div className="h-screen flex justify-around items-center py-4 px-8 bg-hero-image bg-no-repeat bg-cover">
       {raffleContractAddress ? (
         <>
-          <div className="flex flex-col h-2/6 p-10 rounded-3xl bg-white">
+          <div className="flex flex-col h-[20rem] p-10 rounded-3xl bg-white">
             <h1 className="text-5xl font-bold mb-28">Lottery Entrance</h1>
             <button
-              className="mb-4 p-3 w-40 rounded bg-blue-700 text-white text-xl font-semibold hover:bg-blue-600 transition duration-150 ease-out hover:ease-in"
+              className="mb-4 p-3 w-40 rounded bg-blue-700 text-white text-xl font-semibold hover:bg-blue-900 transition duration-150 ease-out hover:ease-in"
               onClick={async () =>
                 await enterLottery({
                   // onSuccess checks if a TX was successfully sent to metamask,
@@ -101,15 +105,20 @@ const LotteryEntrance = () => {
                   onError: (err) => console.log(err),
                 })
               }
+              disabled={isLoading || isFetching}
             >
-              Enter Lottery
+              {isLoading || isFetching ? (
+                <div className="m-auto animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+              ) : (
+                <>Enter Lottery</>
+              )}
             </button>
             <p className="font-semibold">
               Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH
             </p>
           </div>
 
-          <div className="flex flex-col h-2/6 p-10 rounded-3xl bg-white">
+          <div className="flex flex-col h-[20rem] p-10 rounded-3xl bg-white">
             <p className="text-2xl mb-10">
               Number of players in this lottery:{" "}
               <span className="mt-4 block text-4xl">{numPlayers}</span>
