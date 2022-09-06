@@ -1,3 +1,3 @@
 # decentralized-lottery
 
-This repo is deprecated. Split into its respective FE and Contracts repo.
+Houses the frontend and the contracts repo of the lottery dApp.
